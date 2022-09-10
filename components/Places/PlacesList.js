@@ -1,8 +1,9 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+
 import PlaceItem from './PlaceItem';
 
-function PlaesList({places}) {
+function PlacesList({places}) {
   if (!places || places.length === 0) {
     return (
       <View style={styles.fallbackContainer}>
@@ -22,7 +23,7 @@ function PlaesList({places}) {
   );
 }
 
-export default PlaesList;
+export default PlacesList;
 
 const styles = StyleSheet.create({
   fallbackContainer: {

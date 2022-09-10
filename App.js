@@ -1,19 +1,23 @@
 import React from 'react';
-import {Text, View, StyleSheet, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export function HelloWorldApp() {
+import AllPlaces from './screens/AllPlaces';
+import AddPlace from './screens/AddPlace';
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello, world!</Text>
-      <StatusBar barStyle={'dark-content'} />
-    </View>
+    <>
+      <StatusBar barStyle={'light-content'} />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="AllPlaces" component={AllPlaces} />
+          <Stack.Screen name="AddPlace" component={AddPlace} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
