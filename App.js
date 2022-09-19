@@ -21,6 +21,7 @@ export default function App() {
             headerTintColor: Colors.gray700,
             contentStyle: {backgroundColor: Colors.gray700},
             headerTitleAlign: 'center',
+            orientation: 'portrait',
           }}>
           <Stack.Screen
             name="AllPlaces"
@@ -30,7 +31,7 @@ export default function App() {
               headerRight: ({tintColor}) => (
                 <IconButton
                   icon="add"
-                  size={25}
+                  size={30}
                   color={tintColor}
                   onPress={() => navigation.navigate('AddPlace')}
                 />
