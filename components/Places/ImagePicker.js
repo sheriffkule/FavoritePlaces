@@ -1,24 +1,49 @@
-import React from 'react';
-import {Button, View} from 'react-native';
+import React, {useState} from 'react';
+import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {Colors} from '../../constants/colors';
 
 function ImagePicker() {
+  const [pickedImage, setPickedImage] = useState();
+
   async function takeImageHandler() {
     const image = await launchCamera({
-      saveToPhotos: true,
+      //saveToPhotos: true,
       quality: 1,
       includeExtra: true,
-      maxHeight: 2048,
     });
-    console.log(image);
+
+    setPickedImage(image.uri);
+  }
+
+  let imagePreview = <Text>Take an image</Text>;
+
+  if (pickedImage) {
+    imagePreview = <Image style={styles.image} source={{uri: pickedImage}} />;
   }
 
   return (
     <View>
-      <View></View>
-      <Button title="take image" onPress={takeImageHandler} />
+      <View style={styles.imagePreview}>{imagePreview}</View>
+      <Button title="Take Image" onPress={takeImageHandler} />
     </View>
   );
 }
 
 export default ImagePicker;
+
+const styles = StyleSheet.create({
+  imagePreview: {
+    width: '100%',
+    height: 200,
+    marginVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.primary800,
+    borderRadius: 4,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+});
