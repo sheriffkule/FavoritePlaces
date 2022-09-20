@@ -16,12 +16,6 @@ function OutlinedButton({onPress, icon, children}) {
         color={Colors.primary500}
       />
       <Text style={styles.text}>{children}</Text>
-      <Ionicons
-        style={styles.icon}
-        name={icon}
-        size={25}
-        color={Colors.primary500}
-      />
     </Pressable>
   );
 }
@@ -38,18 +32,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: Colors.primary500,
-    width: '80%',
-    alignSelf: 'center',
   },
   pressed: {
     opacity: 0.5,
   },
   icon: {
-    marginHorizontal: 12,
+    marginRight: 10,
   },
   text: {
     color: Colors.primary500,
-    letterSpacing: 1,
+    letterSpacing: 0.8,
     fontSize: 18,
   },
 });
