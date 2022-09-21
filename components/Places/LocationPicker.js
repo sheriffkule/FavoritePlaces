@@ -1,10 +1,18 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {getCurrentPosition} from 'react-native-geolocation-service';
+
 import OutlinedButton from '../UI/OutlinedButton';
 import {Colors} from '../../constants/colors';
 
 function LocationPicker() {
-  function getLocationHandler() {}
+  //async function verifyPermissions() }
+  //wanted to grant permissions for getting location, but I just don't know how to do it. fuck.
+
+  async function getLocationHandler() {
+    const location = await getCurrentPosition();
+    console.log(location);
+  }
 
   function pickOnMapHandler() {}
 
