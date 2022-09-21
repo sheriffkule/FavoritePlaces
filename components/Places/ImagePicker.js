@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchCamera} from 'react-native-image-picker';
 import {Colors} from '../../constants/colors';
 import OutlinedButton from '../UI/OutlinedButton';
 
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.primary800,
     borderRadius: 4,
+    overflow: 'hidden',
   },
   image: {
     width: '100%',
