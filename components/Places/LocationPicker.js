@@ -40,8 +40,7 @@ function LocationPicker() {
       />
     );
   }
-  // Location preview also wont work, cos I didn't knew how to solve previous issues and also cos I didn't got that
-  // GOOGLE_API_KEY. But still, it doesn't matter, because this all of this is in the purpose of practising.
+  // Location preview is not working as it should
 
   return (
     <View>
