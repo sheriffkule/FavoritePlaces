@@ -35,7 +35,7 @@ function LocationPicker() {
       <Image
         style={styles.image}
         source={{
-          uri: getMapPreview(pickedLocation.latitude, pickedLocation.longitude),
+          uri: getMapPreview(pickedLocation.lat, pickedLocation.lng),
         }}
       />
     );
