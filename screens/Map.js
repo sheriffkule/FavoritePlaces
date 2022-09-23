@@ -29,7 +29,7 @@ function Map({navigation}) {
       return;
     }
 
-    navigation.navigation('AddPlace', {
+    navigation.navigate('AddPlace', {
       pickedLat: selectedLocation.lat,
       pickedLng: selectedLocation.lng,
     });

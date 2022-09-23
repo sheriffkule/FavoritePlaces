@@ -12,6 +12,9 @@ function ImagePicker() {
       //saveToPhotos: true,
       quality: 1,
       includeExtra: true,
+      mediaType: 'photo',
+      presentationStyle: 'currentContext',
+      includeBase64: false,
     });
 
     setPickedImage(image.uri);
@@ -20,7 +23,14 @@ function ImagePicker() {
   let imagePreview = <Text>Take an image</Text>;
 
   if (pickedImage) {
-    imagePreview = <Image style={styles.image} source={{uri: pickedImage}} />;
+    imagePreview = (
+      <Image
+        style={styles.image}
+        source={{uri: pickedImage}}
+        accessible="true"
+        resizeMode="contain"
+      />
+    );
   }
 
   return (
@@ -44,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.primary800,
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
   image: {
     width: '100%',

@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {getCurrentPosition} from 'react-native-geolocation-service';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute, useIsFocused} from '@react-navigation/native';
 
 import OutlinedButton from '../UI/OutlinedButton';
 import {Colors} from '../../constants/colors';
@@ -9,8 +9,21 @@ import {getMapPreview} from '../../util/location';
 
 function LocationPicker() {
   const [pickedLocation, setPickedLocation] = useState();
+  const isFocused = useIsFocused();
 
   const navigation = useNavigation();
+
+  const route = useRoute();
+
+  useEffect(() => {
+    if (isFocused && route.params) {
+      const mapPickedLocation = {
+        lat: route.params.pickedLat,
+        lng: route.params.pickedLng,
+      };
+      setPickedLocation(mapPickedLocation);
+    }
+  }, [route, isFocused]);
 
   //async function verifyPermissions() }
   //wanted to grant permissions for getting location, but I just don't know how to do it. fuck.
