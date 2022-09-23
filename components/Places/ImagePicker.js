@@ -4,7 +4,7 @@ import {launchCamera} from 'react-native-image-picker';
 import {Colors} from '../../constants/colors';
 import OutlinedButton from '../UI/OutlinedButton';
 
-function ImagePicker() {
+function ImagePicker({onTakeImage}) {
   const [pickedImage, setPickedImage] = useState();
 
   async function takeImageHandler() {
@@ -18,6 +18,7 @@ function ImagePicker() {
     });
 
     setPickedImage(image.uri);
+    onTakeImage(image.uri);
   }
 
   let imagePreview = <Text>Take an image</Text>;

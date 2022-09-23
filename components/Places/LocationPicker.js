@@ -7,7 +7,7 @@ import OutlinedButton from '../UI/OutlinedButton';
 import {Colors} from '../../constants/colors';
 import {getMapPreview} from '../../util/location';
 
-function LocationPicker() {
+function LocationPicker({onPickLocation}) {
   const [pickedLocation, setPickedLocation] = useState();
   const isFocused = useIsFocused();
 
@@ -24,6 +24,10 @@ function LocationPicker() {
       setPickedLocation(mapPickedLocation);
     }
   }, [route, isFocused]);
+
+  useEffect(() => {
+    onPickLocation(pickedLocation);
+  }, [onPickLocation, pickedLocation]);
 
   //async function verifyPermissions() }
   //wanted to grant permissions for getting location, but I just don't know how to do it. fuck.
