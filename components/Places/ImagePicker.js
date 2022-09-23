@@ -26,9 +26,8 @@ function ImagePicker() {
     imagePreview = (
       <Image
         style={styles.image}
+        key={pickedImage}
         source={{uri: pickedImage}}
-        accessible="true"
-        resizeMode="contain"
       />
     );
   }
