@@ -24,13 +24,7 @@ function ImagePicker({onTakeImage}) {
   let imagePreview = <Text>Take an image</Text>;
 
   if (pickedImage) {
-    imagePreview = (
-      <Image
-        style={styles.image}
-        key={pickedImage}
-        source={{uri: pickedImage}}
-      />
-    );
+    imagePreview = <Image style={styles.image} source={{uri: pickedImage}} />;
   }
 
   return (
@@ -54,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.primary800,
     borderRadius: 4,
-    overflow: 'visible',
+    overflow: 'hidden',
   },
   image: {
     width: '100%',
