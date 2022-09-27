@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from 'react-native-splash-screen';
@@ -28,7 +28,7 @@ export default function App() {
   }, []);
 
   if (!dbInitialized) {
-    return <SplashScreen />;
+    return <Text>hey</Text>;
   }
 
   return (
@@ -66,7 +66,13 @@ export default function App() {
             }}
           />
           <Stack.Screen name="Map" component={Map} />
-          <Stack.Screen name="PlaceDetails" component={PlaceDetails} />
+          <Stack.Screen
+            name="PlaceDetails"
+            component={PlaceDetails}
+            options={{
+              title: 'Loading Place...',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
