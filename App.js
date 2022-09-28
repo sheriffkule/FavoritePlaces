@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StatusBar, Text} from 'react-native';
+import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from 'react-native-splash-screen';
@@ -27,9 +27,9 @@ export default function App() {
       });
   }, []);
 
-  if (!dbInitialized) {
-    return <Text>hey</Text>;
-  }
+  // if (!dbInitialized) {
+  //   return navigator.navigate('AllPlaces');
+  // }
 
   return (
     <>

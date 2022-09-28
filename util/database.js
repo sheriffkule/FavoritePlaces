@@ -2,9 +2,11 @@ import * as SQLite from 'react-native-sqlite-storage';
 
 import {Place} from '../models/place';
 
-const database = SQLite.openDatabase('places.db');
+export const database = async () => {
+  return SQLite.openDatabase('places.db');
+};
 
-SQLite.enablePromise();
+//SQLite.enablePromise();
 
 export function init() {
   const promise = new Promise((resolve, reject) => {
